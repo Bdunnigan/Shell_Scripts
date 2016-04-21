@@ -1,13 +1,15 @@
 #!/bin/bash
 
-OLDIFS="${IFS}"
-IFS=$'\n'
-FILE_LIST=$(cat /root/medialab/medialist.txt)
-SEARCH_LIST=$(ls /root/medialab/)
-testing=0
 
-for item in ${FILE_LIST}; do
-	if [[ $(grep "${item}" "${SEARCH_LIST}") == "0" ]]; then
-		
+FILE_LIST="/root/medialab/medialist.txt"
+
+
+
+
+while read line; do
+	if [[ -e /root/medialab/${line} ]]; then
+		echo "${line}" >> /root/foundfiles.txt
+	else
+		echo "${line}" >> /root/lostfiles.txt
 	fi
-done
+done < ${FILE_LIST}

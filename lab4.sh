@@ -3,7 +3,10 @@
 echo "Please enter an integer"
 
 read NUM
+#deal with floating point numbers
 NUM=$(echo ${NUM} | awk 'BEGIN { FS="." } { print$1 }')
+
+#if input is invalid then output error message
 if ! [[ "${NUM}" =~ ^[[:digit:]]*$ ]];then
 	echo "Invalid input, please try again"
 	exit
