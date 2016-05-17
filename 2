@@ -1,0 +1,29 @@
+#!/bin/bash
+
+ADDRESSES=$(tail -n1 /root/git_repos/Shell_Scripts/addresses.csv)
+
+
+WEBURL="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+EMAIL="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+WPHONE="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+HPHON="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+ZIP="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+STATE="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+COUNTY="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+CITY="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+STREET="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+COMPANY="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+LNAME="${ADDRESSES##*","}";  ADDRESSES=${ADDRESSES%","*}
+FNAME="${ADDRESSES##*","}"; ADDRESSES=${ADDRESSES%","*}
+
+echo $FNAME
+echo $LNAME
+echo $COMPANY
+echo $STREET
+echo $CITY
+echo $STATE
+echo $ZIP
+echo $HPHONE
+echo $WPHONE
+echo $EMAIL
+echo $WEBURL
